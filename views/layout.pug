@@ -13,12 +13,12 @@ html(lang="es")
         div.nav-wrapper
           a.brand-logo.right.grey-text.text-darken-3 Academia Lagunensis
           a.sidenav-trigger(data-target="mobile-demo")
-            i.material-icons.grey-text.text-darken-3 menú
+            i.material-icons.grey-text.text-darken-3 menu
           ul.left.hide-on-med-and-down
             li
-              a.grey-text.text-darken-3(href="") Inicio
+              a.grey-text.text-darken-3(href="/") Inicio
             li
-              a.grey-text.text-darken-3(href="") Asignaturas
+              a.grey-text.text-darken-3(href="/asignaturas") Asignaturas
             li
               a.grey-text.text-darken-3(href="") Contacto
             li
@@ -26,24 +26,14 @@ html(lang="es")
 
     ul.sidenav#mobile-demo
       li
-        a(href="") Inicio
+        a(href="/") Inicio
       li
-        a(href="") Asignaturas
+        a(href="/asignaturas") Asignaturas
       li
         a(href="") Contacto
       li
         a(href="") Acerca de
 
-    div.parallax-container
-      div.parallax
-        img(src="images/old-books-436498_1920.jpg" alt="")
-
-    div.section.white
-      div.row.container
-        block content
-    div.parallax-container
-      div.parallax
-        img(src="images/phone-1052023_1920.jpg" alt="")
 
     block content
 
