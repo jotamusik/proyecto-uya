@@ -1,7 +1,86 @@
 doctype html
-html
+html(lang="es")
   head
+    meta(charset="UTF-8")
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
   body
+    nav.white
+      div.container
+        div.nav-wrapper
+          a.brand-logo.right.grey-text.text-darken-3 Academia Lagunensis
+          a.sidenav-trigger(data-target="mobile-demo")
+            i.material-icons.grey-text.text-darken-3 menú
+          ul.left.hide-on-med-and-down
+            li
+              a.grey-text.text-darken-3(href="") Inicio
+            li
+              a.grey-text.text-darken-3(href="") Asignaturas
+            li
+              a.grey-text.text-darken-3(href="") Contacto
+            li
+              a.grey-text.text-darken-3(href="") Acerca de
+
+    ul.sidenav#mobile-demo
+      li
+        a(href="") Inicio
+      li
+        a(href="") Asignaturas
+      li
+        a(href="") Contacto
+      li
+        a(href="") Acerca de
+
+    div.parallax-container
+      div.parallax
+        img(src="images/old-books-436498_1920.jpg" alt="")
+
+    div.section.white
+      div.row.container
+        block content
+    div.parallax-container
+      div.parallax
+        img(src="images/phone-1052023_1920.jpg" alt="")
+
     block content
+
+    footer.page-footer.grey.darken-3
+      div.container
+        div.row
+          div.col.l6.s12
+            h5.white-text Academia Lagunensis
+            p.grey-text.text-lighten-4
+              | Edificio Galaxia
+              br
+              | Calle Heraclio Sanchez
+              br
+              | Nº 25
+              br
+              | Planta: -1
+              br
+              | Local: 15-16
+
+          div.col.l4.offset-l2.s12
+            h5.white-text Links
+            ul
+              li
+                a.grey-text.text-lighten-3(href="#") Link 1
+              li
+                a.grey-text.text-lighten-3(href="#") Link 2
+              li
+                a.grey-text.text-lighten-3(href="#") Link 3
+              li
+                a.grey-text.text-lighten-3(href="#") Link 4
+
+      div.footer-copyright
+        div.container © 2018 Copyright Text
+          a.grey-text.text-lighten-4.right(href="#") More Links
+
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js")
+    script(src="javascripts/index.js")
