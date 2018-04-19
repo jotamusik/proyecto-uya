@@ -9,6 +9,9 @@ var debug = require('debug')('academialagunensis:server');
 var http = require('http');
 var mongoose = require('mongoose');
 
+var urlAcademia = process.env.MONGO_ACADEMIALAGUNENSIS;
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -27,7 +30,7 @@ var server = http.createServer(app);
  */
 
 
-mongoose.connect('mongodb://user:musica17byJorge@cluster0-shard-00-00-yxr8e.mongodb.net:27017,cluster0-shard-00-01-yxr8e.mongodb.net:27017,cluster0-shard-00-02-yxr8e.mongodb.net:27017/AcademiaLagunensis?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin', function (err, res) {
+mongoose.connect(urlAcademia, function (err, res) {
     if ( err )
         throw err;
     else {
