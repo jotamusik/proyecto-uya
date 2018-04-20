@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+    br
+
+    div.container
+        .row
+            .col.l2.offset-l5.s4.offset-s4
+                img.responsive-img(src="images/logo.png")
+        .row
+            .col.l4.offset-l4.center.s12
+                p.flow-text Academia Lagunensis
+                p.flow-text Registro
+        .row
+            form.col.l6.offset-l3
+                .row
+                    .input-field.col.s6
+                        input#first_name.validate(placeholder="Nombre" type="text")
+                        label(for="first_name") Nombre
+                    .input-field.col.s6
+                        input#last_name.validate(placeholder="Apellidos" type="text")
+                        label(for="last_name") Apellidos
+                .row
+                    .input-field.col.s12
+                        input#email.validate(placeholder="Email" type="email")
+                        label(for="email") Email
+                .row
+                    .input-field.col.s12
+                        input#password.validate(placeholder="Contraseña" type="password")
+                        label(for="password") Contraseña
+                .row
+                    .col.l2.offset-l3.offset-s3
+                    button.btn.waves-effect.waves-light.purple.darken-2(name="action")
+                        | Enviar
+                        i.material-icons.right send
+
