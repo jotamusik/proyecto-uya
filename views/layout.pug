@@ -6,26 +6,33 @@ html(lang="es")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="icon" type="image/png" href="images/logo.png")
 
   body
-    nav.white
+    nav.purple.darken-2
       div.container
         div.nav-wrapper
-          a.brand-logo.right.grey-text.text-darken-3(href="/" tabindex="-1") Academia Lagunensis
+          a.brand-logo.right.white-text(href="/" tabindex="-1")
           // ToDo: Añadir WAI-ARIA al botón del menú desplegable para dispositivos de pantalla pequeña
           a.sidenav-trigger(data-target="mobile-demo")
-            i.material-icons.grey-text.text-darken-3 menu
+            i.material-icons.white-text menu
           ul.left.hide-on-med-and-down
             li
-              a.grey-text.text-darken-3(href="/") Inicio
+              a.white-text(href="/") Inicio
             li
-              a.grey-text.text-darken-3(href="/asignaturas") Asignaturas
+              a.white-text(href="/asignaturas") Asignaturas
             li
-              a.grey-text.text-darken-3(href="") Contacto
+              a.white-text(href="") Contacto
             li
-              a.grey-text.text-darken-3(href="") Acerca de
+              a.white-text(href="") Acerca de
 
-    // ToDo: Ocultar una de las dos barras de navegación según dispositivo.
+          ul.right.hide-on-med-and-down
+            li
+              a.white-text(href="/login") Iniciar Sesión
+            li
+              a.white-text(href="/registro") Registrarse
+
+    // ToDo: Ocultar una de las dos barras de navegación según dispositivo y reducir tamaño del logo
 
     ul.sidenav#mobile-demo(role="navigation")
       li
@@ -36,6 +43,10 @@ html(lang="es")
         a(href="") Contacto
       li
         a(href="") Acerca de
+      li
+        a(href="") Iniciar sesión
+      li
+        a(href="/registro") Registrarse
 
 
     block content

@@ -19,4 +19,12 @@ router.get('/asignaturas', function(req, res, next) {
     });
 });
 
+router.get('/registro', function(req, res, next) {
+    res.render('registro', { title: 'Registrarse' });
+});
+
+router.get('/login', function(req, res, next) {
+    res.render('login', { title: 'Iniciar Sesión' });
+});
+
 module.exports = router;
