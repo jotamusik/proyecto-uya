@@ -7,12 +7,24 @@ $(document).ready(function(){
 });
 
 
+$('.activator').on('keypress' , function( event ) {
 
-// ToDo: Terminar de solucionar esto
-$('.activator').on('keypress' , function() {
-    console.log("HEY");
-    this.click();
-    var cardReveal = this.closest('.card-reveal');
+    let target = event.target;
+    target.click();
+    let card = target.closest('.card');
+    let cardReveal = card.querySelector('.card-reveal');
+    let cardTitle = cardReveal.querySelector('.card-title');
+    cardTitle.focus();
 
 });
 
+$('.card-reveal').find('.card-title').on('keypress', function ( event ) {
+
+    let target = event.target;
+    target.click();
+    let card = target.closest('.card');
+    let cardContent = card.querySelector('.card-content');
+    let cardTitle = cardContent.querySelector('.card-title');
+    cardTitle.focus();
+
+});
