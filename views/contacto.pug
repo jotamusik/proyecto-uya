@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+    br
+
+    .container
+
+        h1.center-align Ponte en contacto con nosotros
+        p.flow-text.center-align Envíanos un mensaje y responderemos tus dudas lo antes posible a la dirección de correo que nos proporciones
+
+        .row
+            form.col.l6.offset-l3(action="/contacto" method="post")
+                .row
+                    .input-field.col.l12.s12
+                        input#name.validate(placeholder='Nombre Completo', type='text' name="contactName")
+                        label.black-text(for='name') Nombre Completo
+                .row
+                    .input-field.col.s12
+                        input#contactEmail.validate(placeholder='email de contacto' type='email' name="contactEmail")
+                        label.black-text(for='contactEmail') email de contacto
+                .row
+                    .input-field.col.l12.s12
+                        input#asunto.validate(placeholder='Asunto', type='text' name="asunto")
+                        label.black-text(for='asunto') Asunto
+                .row
+                    .input-field.col.s12
+                        textarea#message.materialize-textarea(placeholder='Escribe aquí tu consulta' name="message")
+                        label.black-text(for='message') Escribe aquí tu consulta
+
+                .row
+                    .col.l2.offset-l3.offset-s3
+                    button#contact.btn.waves-effect.waves-light.purple.darken-2(name="action")
+                        | Enviar
+                        i.material-icons.right send
