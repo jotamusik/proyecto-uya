@@ -4,11 +4,11 @@ var Asignatura = require('../models/asignatura');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res) {
   res.render('index', { title: 'Academia Lagunensis' });
 });
 
-router.get('/asignaturas', function(req, res, next) {
+router.get('/asignaturas', function (req, res) {
     //res.render('asignaturas', { title: 'Asignaturas' });
     Asignatura.find({}, function (err, asignaturas) {
 
@@ -19,12 +19,16 @@ router.get('/asignaturas', function(req, res, next) {
     });
 });
 
-router.get('/registro', function(req, res, next) {
+router.get('/registro', function (req, res) {
     res.render('registro', { title: 'Registrarse' });
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/login', function (req, res) {
     res.render('login', { title: 'Iniciar Sesión' });
+});
+
+router.get('/about', function (req, res) {
+    res.render('about', { title: 'Acerca de Academia Lagunensis' });
 });
 
 module.exports = router;
