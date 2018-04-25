@@ -76,3 +76,55 @@ $(function(){
         }
     });
 });
+
+/*
+
+$(function(){
+
+    $("#contact").on('click', function(event){
+        event.preventDefault();
+
+        var name = $("#name").val();
+        var contactEmail = $("#contactEmail").val();
+        var asunto = $("#asunto").val();
+        var message = $("#message").val();
+
+        if(!name ||!contactEmail || !asunto || !message) {
+
+            //$("#msgDiv").show().html("All fields are required.");
+            console.log("Falta nombre, o email, o asunto o mensaje");
+
+        }
+        else{
+
+            $.ajax({
+                url: "/contacto",
+                method: "POST",
+
+                data: { name: name, contactEmail: contactEmail, asunto: asunto, message: message }
+
+            }).done(function( data ) {
+
+                if ( data ) {
+                    if(data.status == 'error'){
+
+                        console.log("Ha habido un error");
+
+                        // var errors = '<ul>';
+                        // $.each( data.message, function( key, value ) {
+                        //     errors = errors +'<li>'+value.msg+'</li>';
+                        // });
+
+                        // errors = errors+ '</ul>';
+                        // $("#msgDiv").html(errors).show();
+                    }else{
+                        // $("#msgDiv").removeClass('alert-danger').addClass('alert-success').html(data.message).show();
+                        console.log("Todo correcto con ajax");
+                    }
+                }
+            });
+        }
+    });
+});
+
+*/
