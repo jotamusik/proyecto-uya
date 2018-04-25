@@ -36,6 +36,10 @@ router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Iniciar Sesión' });
 });
 
+router.get('/about', function (req, res) {
+    res.render('about', { title: 'Acerca de Academia Lagunensis' });
+});
+
 router.get('/contacto', function(req, res, next){
     res.render('contacto', { title: 'Contacto'});
 });
