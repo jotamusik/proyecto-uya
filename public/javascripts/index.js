@@ -1,3 +1,4 @@
+
 let isMobile = {
     Android: () => { return navigator.userAgent.match(/Android/i); },
     BlackBerry : () => { return navigator.userAgent.match(/BlackBerry/i); },
@@ -21,7 +22,9 @@ if ( isMobile.any() ) {
     $('.container').removeClass('container');
     $('.brand-logo').removeClass('center').addClass('right');
 }
-
+else {
+    $('#mobile-demo').hide();
+}
 
 $('.activator').on('keypress' , function( event ) {
 
