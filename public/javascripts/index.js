@@ -1,3 +1,13 @@
+let isMobile = {
+    Android: () => { return navigator.userAgent.match(/Android/i); },
+    BlackBerry : () => { return navigator.userAgent.match(/BlackBerry/i); },
+    iOS: () => { return navigator.userAgent.match(/iPhone|iPad|iPod/i); },
+    Opera: () => { return navigator.userAgent.match(/Opera Mini/i); },
+    Windows: () => { return navigator.userAgent.match(/IEMobile/i); },
+    any: () => { return ( isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() ); }
+
+};
+
 $(document).ready(function(){
     $('.parallax').parallax();
 });
@@ -5,6 +15,12 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.sidenav').sidenav();
 });
+
+// En caso de ser movil, quitar containers y poner titulo a la derecha
+if ( isMobile.any() ) {
+    $('.container').removeClass('container');
+    $('.brand-logo').removeClass('center').addClass('right');
+}
 
 
 $('.activator').on('keypress' , function( event ) {
@@ -76,55 +92,3 @@ $(function(){
         }
     });
 });
-
-/*
-
-$(function(){
-
-    $("#contact").on('click', function(event){
-        event.preventDefault();
-
-        var name = $("#name").val();
-        var contactEmail = $("#contactEmail").val();
-        var asunto = $("#asunto").val();
-        var message = $("#message").val();
-
-        if(!name ||!contactEmail || !asunto || !message) {
-
-            //$("#msgDiv").show().html("All fields are required.");
-            console.log("Falta nombre, o email, o asunto o mensaje");
-
-        }
-        else{
-
-            $.ajax({
-                url: "/contacto",
-                method: "POST",
-
-                data: { name: name, contactEmail: contactEmail, asunto: asunto, message: message }
-
-            }).done(function( data ) {
-
-                if ( data ) {
-                    if(data.status == 'error'){
-
-                        console.log("Ha habido un error");
-
-                        // var errors = '<ul>';
-                        // $.each( data.message, function( key, value ) {
-                        //     errors = errors +'<li>'+value.msg+'</li>';
-                        // });
-
-                        // errors = errors+ '</ul>';
-                        // $("#msgDiv").html(errors).show();
-                    }else{
-                        // $("#msgDiv").removeClass('alert-danger').addClass('alert-success').html(data.message).show();
-                        console.log("Todo correcto con ajax");
-                    }
-                }
-            });
-        }
-    });
-});
-
-*/
