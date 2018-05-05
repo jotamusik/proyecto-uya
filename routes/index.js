@@ -77,6 +77,7 @@ router.post('/registro', function (req, res) {
             // ToDo: Handle error by sending message to client instead of simple throw
             //throw error;
             console.log(error);
+            res.json( { status: 'error', message: error } );
         }
         else {
 

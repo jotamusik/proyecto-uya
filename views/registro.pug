@@ -13,25 +13,29 @@ block content
                 p.flow-text Academia Lagunensis
                 p.flow-text Registro
         .row
-            form.col.l6.offset-l3(action="/registro" method="post")
+            form.col.l6.offset-l3
                 .row
                     .input-field.col.s6
-                        input#first_name.validate(placeholder="Nombre" type="text")
+                        input#first_name.validate(placeholder="Nombre" type="text" required)
                         label(for="first_name") Nombre
                     .input-field.col.s6
-                        input#last_name.validate(placeholder="Apellidos" type="text")
+                        input#last_name.validate(placeholder="Apellidos" type="text" required)
                         label(for="last_name") Apellidos
                 .row
                     .input-field.col.s12
-                        input#email.validate(placeholder="Email" type="email")
+                        input#email.validate(placeholder="Email" type="email" required)
                         label(for="email") Email
                 .row
                     .input-field.col.s12
-                        input#password.validate(placeholder="Contraseña" type="password")
+                        input#password.validate(placeholder="Contraseña" type="password" required)
                         label(for="password") Contraseña
                 .row
-                    .col.l2.offset-l3.offset-s3
+                    .col.l2.offset-l2.offset-s2
                     button#register.btn.waves-effect.waves-light.purple.darken-2(name="action")
                         | Enviar
                         i.material-icons.right send
 
+        .row
+            //div.col.l6.offset-l3(aria-live="assertive")
+                div.card-panel.lighten-1#errorCard(hidden)
+            p.flow-text.center-align#errorMessage(hidden)
