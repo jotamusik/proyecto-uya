@@ -1,3 +1,5 @@
+
+/* Necesario si queremos hacer versiones distintas para escritorio o version movil
 let isMobile = {
     Android: () => {
         return navigator.userAgent.match(/Android/i);
@@ -30,7 +32,7 @@ function checkIsMobile() {
         $('#mobile-demo').hide();
     }
 }
-
+*/
 
 function isMailValid(myEmail) {
 
@@ -51,8 +53,6 @@ function isPasswordValid(myPassword) {
     console.log("La contraseña es valida: " + myPassword + " -> " + isValid);
     return isValid;
 }
-
-checkIsMobile();
 
 $(document).ready(function () {
     $('.parallax').parallax();
@@ -90,7 +90,7 @@ $('.card-reveal').find('.card-title').on('keypress', function (event) {
 // Mensajes de error exito o error en el formulario de registro
 $(function () {
 
-    $("#register").on('click', function (event) {
+    $("#register").on('click keypress', function (event) {
         event.preventDefault();
 
         let name = $("#first_name").val();
@@ -102,8 +102,6 @@ $(function () {
 
         if (!name || !lastName || !email || !password) {
 
-            //$("#msgDiv").show().html("All fields are required.");
-            console.log("Falta nombre, o apellido, o email o contraseña");
             errorMessage.show();
             errorMessage.html("Faltan campos por rellenar");
 
@@ -152,3 +150,105 @@ $(function () {
     });
 });
 
+// Mensaje de exito o error en el formulario de inicio de sesion
+$(function () {
+
+    $("#login").on('click keypress', function (event) {
+        event.preventDefault();
+
+        let email = $("#email").val();
+        let password = $("#password").val();
+
+        let errorMessage = $("#errorMessage");
+
+        if ( !email || !password) {
+
+            errorMessage.show();
+            errorMessage.html("Faltan campos por rellenar");
+
+        }
+        else {
+
+            if (isMailValid(email) && isPasswordValid(password)) {
+
+                $.ajax({
+                    url: "/login",
+                    method: "POST",
+                    dataType: 'json',
+
+                    data: {
+                        email: email,
+                        password: password
+                    }
+
+                }).done(function (data) {
+
+                    if (data) {
+
+                        if (data.status == 'error') {
+
+                            errorMessage.show();
+                            errorMessage.html("Correo o contraseña inválidos, compruebe los datos introducidos.");
+
+                        }
+                        else {
+
+                            location.href = '/login-successful'
+                        }
+                    }
+                });
+            }
+            else {
+                errorMessage.show();
+                errorMessage.html("Correo o contraseña inválidos, compruebe los datos introducidos.");
+            }
+        }
+    });
+});
+
+//Barra Lateral Accesible
+$('.sidenav-trigger').on('keypress', function (event) {
+    let target = event.target;
+    target.click();
+    // ToDo: Ïntentar dar el foco al primer enlace de la lista
+});
+
+$(function () {
+
+    $("#exitSideNav").on('click keypress', function (event) {
+    });
+});
+
+
+$(function () {
+
+    $("#contact").on('click keypress', function (event) {
+        event.preventDefault();
+
+
+        let name = $("#name").val();
+        let contactEmail = $("#contactEmail").val();
+        let asunto = $("#asunto").val();
+        let message = $("#message").val();
+
+        let errorMessage = $("#errorMessage");
+
+        if ( !name || !contactEmail || !asunto || !message) {
+
+            errorMessage.show();
+            errorMessage.html("Faltan campos por rellenar");
+
+        }
+        else {
+
+            if (isMailValid(contactEmail)) {
+
+                $('#contactForm').submit()
+            }
+            else {
+                errorMessage.show();
+                errorMessage.html("Correo inválido, compruebe los datos introducidos.");
+            }
+        }
+    });
+});

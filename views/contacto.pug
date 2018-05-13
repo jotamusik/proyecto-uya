@@ -1,9 +1,7 @@
 extends layout
 
 block content
-
     br
-
     .container
 
         h1.center-align(tabindex="0") ¿Quieres atención personalizada?
@@ -11,22 +9,22 @@ block content
             | correo que nos proporciones
 
         .row
-            form.col.l6.offset-l3(action="/contacto" method="post")
+            form#contactForm.col.l6.offset-l3(action="/contacto" method="post")
                 .row
                     .input-field.col.l12.s12
-                        input#name.validate(placeholder='Nombre Completo', type='text' name="contactName")
+                        input#name.validate(placeholder='Nombre Completo', type='text' name="contactName" required)
                         label.black-text(for='name') Nombre Completo
                 .row
                     .input-field.col.s12
-                        input#contactEmail.validate(placeholder='email de contacto' type='email' name="contactEmail")
+                        input#contactEmail.validate(placeholder='email de contacto' type='email' name="contactEmail" required)
                         label.black-text(for='contactEmail') email de contacto
                 .row
                     .input-field.col.l12.s12
-                        input#asunto.validate(placeholder='Asunto', type='text' name="asunto")
+                        input#asunto.validate(placeholder='Asunto', type='text' name="asunto" required)
                         label.black-text(for='asunto') Asunto
                 .row
                     .input-field.col.s12
-                        textarea#message.materialize-textarea(placeholder='Escribe aquí tu consulta' name="message")
+                        textarea#message.materialize-textarea(placeholder='Escribe aquí tu consulta' name="message" required)
                         label.black-text(for='message') Escribe aquí tu consulta
 
                 .row
@@ -34,3 +32,6 @@ block content
                     button#contact.btn.waves-effect.waves-light.purple.darken-2(name="action")
                         | Enviar
                         i.material-icons.right send
+
+        .row.red-text.text-accent-4
+            p.flow-text.center-align#errorMessage(hidden tabindex="0")

@@ -18,7 +18,7 @@ html(lang="es")
         div.nav-wrapper
           //a.brand-logo.center.white-text(href="/" tabindex="-1") Academia Lagunensis
           // ToDo: Añadir WAI-ARIA al botón del menú desplegable para dispositivos de pantalla pequeña
-          a.sidenav-trigger(data-target="mobile-demo")
+          a.sidenav-trigger(data-target="mobile-demo" tabindex="0")
             i.material-icons.white-text menu
           ul.left.hide-on-med-and-down
             li
@@ -55,6 +55,8 @@ html(lang="es")
         a(href="/registro") Registrarse
       li
         a(href="/mapa-web") Mapa Web
+      li
+        a#exitSideNav(tabindex="0") Cerrar menú
 
 
     div#main
@@ -79,11 +81,13 @@ html(lang="es")
           div.col.l4.offset-l2.s12
             h5.white-text(tabindex=0) Teléfonos de contacto
 
-            p.grey-text.text-lighten-3
-            img(src="images/Icon-Small.ico" alt="")
-            | 616 261 031
-            br
-            | Fijo: 922 195 005
+            p.grey-text.text-lighten-3(tabindex="0")
+              | Móvil: 616 261 031
+              br
+              | Fijo: 922 195 005
+              br
+              a(href="/contacto")
+                | Envíanos un email
 
 
 
@@ -91,7 +95,7 @@ html(lang="es")
         div.container.row
           p.col.l6(tabindex=0) © 2018 Copyright Text
           p.right.col.l4.offset-l2
-            a.grey-text.text-lighten-4(href="#") More Links
+            a.grey-text.text-lighten-4(href="/mapa-web") Mapa Web
 
     script(src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

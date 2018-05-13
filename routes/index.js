@@ -41,7 +41,7 @@ router.get('/about', function (req, res) {
 });
 
 router.get('/contacto', function(req, res, next){
-    res.render('contacto', { title: 'Contacto'});
+    res.render('contacto', { title: 'Contacto' });
 });
 
 /* POST user registration page. */
@@ -64,7 +64,7 @@ router.post('/registro', function (req, res) {
     let document = {
             nombre: name,
             apellidos: last_name,
-            email: email,
+            email: email.toLowerCase(),
             password: password
     };
 
@@ -83,18 +83,50 @@ router.post('/registro', function (req, res) {
 
             console.log(usuario);
             console.log("User created successfully");
-            res.json({message: "Data saved successfully.", status: "success"});
+            res.json({ message: "Data saved successfully.", status: "success" });
         }
     });
 });
 
 
 router.get('/register-successful', function (req, res) {
-    res.render('register-successful');
+    res.render('register-successful', { title: 'Registro Completado' });
 });
 
 router.get('/mapa-web', function (req, res) {
-    res.render('mapa-web');
+    res.render('mapa-web', { title: 'Mapa Web' });
+});
+
+router.post('/login', function (req, res) {
+
+    let myUser = {
+        email: req.body.email,
+        password: req.body.password
+    };
+
+    console.log("Correo: " + myUser.email);
+    console.log("Contraseña: " + myUser.password);
+
+    Usuario.findOne(myUser, function (error, user) {
+
+        if ( error ) {
+            res.json( { status: 'error', message: error } );
+        }
+        else {
+            if ( !user ) {
+                res.json( { status: 'error', message: error } );
+            }
+            else {
+                res.json({ message: "Usuario logueado correctamente", status: "success" });
+            }
+        }
+
+    });
+
+});
+
+router.get('/login-successful', function (req, res) {
+    res.render('login-successful', { title: 'Inicio de sesión exitoso' });
 });
 
 module.exports = router;

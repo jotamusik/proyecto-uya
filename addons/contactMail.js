@@ -37,10 +37,10 @@ function sendMyMail(req, res) {
     // send mail with defined transport object
     smtpTransport.sendMail(mailOptions, function(error, response){
         if ( error ) {
-            res.render('mail', {title: 'Error', error: true});
+            res.render('mail', { title: 'Error', error: true });
         }
         else {
-            res.render('mail', {title: 'Mensaje enviado', error: false});
+            res.render('mail', { title: 'Mensaje enviado', error: false });
         }
 
         // if you don't want to use this transport object anymore, uncomment following line

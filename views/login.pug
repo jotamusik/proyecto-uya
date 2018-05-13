@@ -10,8 +10,8 @@ block content
                 img.responsive-img(src="images/logo.png" alt="")
         .row
             .col.l4.offset-l4.center.s12
-                p.flow-text Academia Lagunensis
-                p.flow-text Iniciar Sesión
+                p.flow-text(tabindex="0") Academia Lagunensis
+                p.flow-text(tabindex="0") Iniciar Sesión
         .row
             form.col.l6.offset-l3
                 .row
@@ -24,7 +24,9 @@ block content
                         label(for="password") Contraseña
                 .row
                     .col.l2.offset-l3.offset-s4
-                    button.btn.waves-effect.waves-light.purple.darken-2(type="submit" name="action")
+                    button#login.btn.waves-effect.waves-light.purple.darken-2(type="submit" name="action")
                         | Enviar
                         i.material-icons.right send
 
+        .row.red-text.text-accent-4
+            p.flow-text.center-align#errorMessage(hidden tabindex="0" aria-live="polite")

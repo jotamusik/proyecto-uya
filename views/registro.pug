@@ -10,8 +10,8 @@ block content
                 img.responsive-img(src="images/logo.png" alt="")
         .row
             .col.l4.offset-l4.center.s12
-                p.flow-text Academia Lagunensis
-                p.flow-text Registro
+                p.flow-text(tabindex="0") Academia Lagunensis
+                p.flow-text(tabindex="0") Registro
         .row
             form.col.l6.offset-l3
                 .row
@@ -35,7 +35,5 @@ block content
                         | Enviar
                         i.material-icons.right send
 
-        .row
-            //div.col.l6.offset-l3(aria-live="assertive")
-                div.card-panel.lighten-1#errorCard(hidden)
-            p.flow-text.center-align#errorMessage(hidden)
+        .row.red-text.text-accent-4
+            p.flow-text.center-align#errorMessage(hidden tabindex="0")
