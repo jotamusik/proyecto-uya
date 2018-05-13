@@ -1,16 +1,38 @@
-
 let isMobile = {
-    Android: () => { return navigator.userAgent.match(/Android/i); },
-    BlackBerry : () => { return navigator.userAgent.match(/BlackBerry/i); },
-    iOS: () => { return navigator.userAgent.match(/iPhone|iPad|iPod/i); },
-    Opera: () => { return navigator.userAgent.match(/Opera Mini/i); },
-    Windows: () => { return navigator.userAgent.match(/IEMobile/i); },
-    any: () => { return ( isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() ); }
+    Android: () => {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: () => {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: () => {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: () => {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: () => {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: () => {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
 
 };
 
+// En caso de ser movil, quitar containers y poner titulo a la derecha
+function checkIsMobile() {
+    if (isMobile.any()) {
+        $('.container').removeClass('container');
+        $('.brand-logo').removeClass('center').addClass('right');
+    }
+    else {
+        $('#mobile-demo').hide();
+    }
+}
 
-function isMailValid(myEmail){
+
+function isMailValid(myEmail) {
 
     let regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -30,35 +52,20 @@ function isPasswordValid(myPassword) {
     return isValid;
 }
 
-function changeMessageColor (color) {
-    // ToDo: Terminar esto Cambiar las clases de los colores del texto al registrar a los usuarios
-    $( "" ).toggleClass(function() {
-        if ( $( this ).parent().is( ".bar" ) ) {
-            return "happy";
-        } else {
-            return "sad";
-        }
-    });
-}
+checkIsMobile();
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.parallax').parallax();
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.sidenav').sidenav();
 });
 
-// En caso de ser movil, quitar containers y poner titulo a la derecha
-if ( isMobile.any() ) {
-    $('.container').removeClass('container');
-    $('.brand-logo').removeClass('center').addClass('right');
-}
-else {
-    $('#mobile-demo').hide();
-}
 
-$('.activator').on('keypress' , function( event ) {
+
+// Cards Accesibles
+$('.activator').on('keypress', function (event) {
 
     let target = event.target;
     target.click();
@@ -69,7 +76,7 @@ $('.activator').on('keypress' , function( event ) {
 
 });
 
-$('.card-reveal').find('.card-title').on('keypress', function ( event ) {
+$('.card-reveal').find('.card-title').on('keypress', function (event) {
 
     let target = event.target;
     target.click();
@@ -80,9 +87,10 @@ $('.card-reveal').find('.card-title').on('keypress', function ( event ) {
 
 });
 
-$(function(){
+// Mensajes de error exito o error en el formulario de registro
+$(function () {
 
-    $("#register").on('click', function(event){
+    $("#register").on('click', function (event) {
         event.preventDefault();
 
         let name = $("#first_name").val();
@@ -92,7 +100,7 @@ $(function(){
 
         let errorMessage = $("#errorMessage");
 
-        if ( !name || !lastName || !email || !password ) {
+        if (!name || !lastName || !email || !password) {
 
             //$("#msgDiv").show().html("All fields are required.");
             console.log("Falta nombre, o apellido, o email o contraseña");
@@ -100,16 +108,21 @@ $(function(){
             errorMessage.html("Faltan campos por rellenar");
 
         }
-        else{
+        else {
 
-            if ( isMailValid(email) && isPasswordValid(password) ) {
+            if (isMailValid(email) && isPasswordValid(password)) {
 
                 $.ajax({
                     url: "/registro",
                     method: "POST",
                     dataType: 'json',
 
-                    data: {nombre: name, apellidos: lastName, email: email, password: password}
+                    data: {
+                        nombre: name,
+                        apellidos: lastName,
+                        email: email,
+                        password: password
+                    }
 
                 }).done(function (data) {
 
@@ -117,36 +130,15 @@ $(function(){
 
                         if (data.status == 'error') {
 
-
-                            console.log("Ha habido un error");
-                            /*
-                            let errorCard = $("#errorCard");
-                            errorCard.addClass("red lighten-1");
-                            errorCard.show();
-                            */
                             errorMessage.toggleClass("red-text text-accent-4");
                             errorMessage.show();
                             errorMessage.html("Ha habido un problema con el registro. Verifique que los datos " +
                                 "introducidos son correctos o inténtelo más tarde");
 
-
-                            // var errors = '<ul>';
-                            // $.each( data.message, function( key, value ) {
-                            //     errors = errors +'<li>'+value.msg+'</li>';
-                            // });
-
-                            // errors = errors+ '</ul>';
-                            // $("#msgDiv").html(errors).show();
                         }
                         else {
-                            // $("#msgDiv").removeClass('alert-danger').addClass('alert-success').html(data.message).show();
-                            console.log("Todo correcto con ajax");
-                            let errorMessage = $("#errorMessage");
-                            errorMessage.addClass("green-text text-darken-3");
-                            errorMessage.show();
-                            errorMessage.html("Ha habido un problema con el registro. Verifique que los datos " +
-                                "introducidos son correctos o inténtelo más tarde");
-                            errorMessage.html("Usuario registrado correctamente");
+
+                            location.href = '/register-successful'
                         }
                     }
                 });

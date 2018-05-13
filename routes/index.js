@@ -88,4 +88,13 @@ router.post('/registro', function (req, res) {
     });
 });
 
+
+router.get('/register-successful', function (req, res) {
+    res.render('register-successful');
+});
+
+router.get('/mapa-web', function (req, res) {
+    res.render('mapa-web');
+});
+
 module.exports = router;

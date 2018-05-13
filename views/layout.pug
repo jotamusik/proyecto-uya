@@ -11,6 +11,8 @@ html(lang="es")
 
 
   body
+    a.skip-main(href="#main") Skip to Main Content
+
     nav.purple.darken-2
       div.container
         div.nav-wrapper
@@ -27,12 +29,14 @@ html(lang="es")
               a.white-text(href="/contacto") Contacto
             li
               a.white-text(href="/about") Acerca de
-
-          ul.right.hide-on-med-and-down
             li
               a.white-text(href="/login") Iniciar Sesión
             li
               a.white-text(href="/registro") Registrarse
+
+          ul.right.hide-on-med-and-down
+            li
+              a.white-text(href="/mapa-web") Mapa Web
 
     // ToDo: Ocultar una de las dos barras de navegación según dispositivo y reducir tamaño del logo
 
@@ -49,9 +53,12 @@ html(lang="es")
         a(href="/login") Iniciar sesión
       li
         a(href="/registro") Registrarse
+      li
+        a(href="/mapa-web") Mapa Web
 
 
-    block content
+    div#main
+      block content
 
     footer.page-footer.grey.darken-3
       div.container
