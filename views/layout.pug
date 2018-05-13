@@ -5,7 +5,7 @@ html(lang="es")
     title= title
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1")
     link(rel="icon" type="image/png" href="images/logo.png")
     link(rel="stylesheet" href="stylesheets/style.css")
 
@@ -40,24 +40,32 @@ html(lang="es")
 
     // ToDo: Ocultar una de las dos barras de navegación según dispositivo y reducir tamaño del logo
 
-    ul.sidenav#mobile-demo(role="navigation")
-      li
-        a#homeButton(href="/") Inicio
-      li
-        a(href="/asignaturas") Asignaturas
-      li
-        a(href="/contacto") Contacto
-      li
-        a(href="/about") Acerca de
-      li
-        a(href="/login") Iniciar sesión
-      li
-        a(href="/registro") Registrarse
-      li
-        a(href="/mapa-web") Mapa Web
-      li
-        a#exitSideNav(tabindex="0") Cerrar menú
-          i.material-icons close
+    div(role="navigation" aria-labelledby="mobile-demo")
+        ul.sidenav#mobile-demo
+          li
+            a#homeButton(href="/") Inicio
+              i.material-icons home
+          li
+            a(href="/asignaturas") Asignaturas
+              i.material-icons library_books
+          li
+            a(href="/contacto") Contacto
+              i.material-icons email
+          li
+            a(href="/about") Acerca de
+              i.material-icons info
+          li
+            a(href="/login") Iniciar sesión
+              i.material-icons person
+          li
+            a(href="/registro") Registrarse
+              i.material-icons person_add
+          li
+            a(href="/mapa-web") Mapa Web
+              i.material-icons map
+          li
+            a#exitSideNav(tabindex="0") Cerrar menú
+              i.material-icons close
 
 
     div#main
