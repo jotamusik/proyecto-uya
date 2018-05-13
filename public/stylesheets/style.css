@@ -1,4 +1,7 @@
 
+.myParallax-container {
+    height: 250px;
+}
 
 .input-field > label {
     color: black;

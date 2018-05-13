@@ -18,7 +18,7 @@ html(lang="es")
         div.nav-wrapper
           //a.brand-logo.center.white-text(href="/" tabindex="-1") Academia Lagunensis
           // ToDo: Añadir WAI-ARIA al botón del menú desplegable para dispositivos de pantalla pequeña
-          a.sidenav-trigger(data-target="mobile-demo" tabindex="0")
+          a.sidenav-trigger#sideNavButton(data-target="mobile-demo" tabindex="0")
             i.material-icons.white-text menu
           ul.left.hide-on-med-and-down
             li
@@ -42,7 +42,7 @@ html(lang="es")
 
     ul.sidenav#mobile-demo(role="navigation")
       li
-        a(href="/") Inicio
+        a#homeButton(href="/") Inicio
       li
         a(href="/asignaturas") Asignaturas
       li
@@ -57,6 +57,7 @@ html(lang="es")
         a(href="/mapa-web") Mapa Web
       li
         a#exitSideNav(tabindex="0") Cerrar menú
+          i.material-icons close
 
 
     div#main

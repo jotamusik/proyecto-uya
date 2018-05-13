@@ -1,5 +1,5 @@
 
-/* Necesario si queremos hacer versiones distintas para escritorio o version movil
+
 let isMobile = {
     Android: () => {
         return navigator.userAgent.match(/Android/i);
@@ -25,14 +25,10 @@ let isMobile = {
 // En caso de ser movil, quitar containers y poner titulo a la derecha
 function checkIsMobile() {
     if (isMobile.any()) {
-        $('.container').removeClass('container');
-        $('.brand-logo').removeClass('center').addClass('right');
-    }
-    else {
-        $('#mobile-demo').hide();
+        $('nav .container').removeClass('container');
+        $('.paralax-container').addClass('myParallax-container');
     }
 }
-*/
 
 function isMailValid(myEmail) {
 
@@ -54,6 +50,8 @@ function isPasswordValid(myPassword) {
     return isValid;
 }
 
+checkIsMobile();
+
 $(document).ready(function () {
     $('.parallax').parallax();
 });
@@ -61,8 +59,6 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.sidenav').sidenav();
 });
-
-
 
 // Cards Accesibles
 $('.activator').on('keypress', function (event) {
@@ -211,15 +207,18 @@ $('.sidenav-trigger').on('keypress', function (event) {
     let target = event.target;
     target.click();
     // ToDo: Ïntentar dar el foco al primer enlace de la lista
+    $('#homeButton').focus();
 });
 
+//SideNav Close
 $(function () {
-
     $("#exitSideNav").on('click keypress', function (event) {
+        $('.sidenav-overlay').click();
+        $('#sideNavButton').focus();
     });
 });
 
-
+// Mensaje de error en el caso del formulario de contacto
 $(function () {
 
     $("#contact").on('click keypress', function (event) {
@@ -236,7 +235,27 @@ $(function () {
         if ( !name || !contactEmail || !asunto || !message) {
 
             errorMessage.show();
-            errorMessage.html("Faltan campos por rellenar");
+            errorMessage.html("Faltan campos por rellenar.<br>");
+
+            if ( !name ) {
+                errorMessage.show();
+                errorMessage.html(errorMessage.html() + "Es necesario introducir el nombre completo.<br>");
+            }
+
+            if ( !contactEmail ) {
+                errorMessage.show();
+                errorMessage.html(errorMessage.html() + "Es necesario introducir el email de contacto.<br>");
+            }
+
+            if ( !asunto ) {
+                errorMessage.show();
+                errorMessage.html(errorMessage.html() + "Es necesario introducir el asunto.<br>");
+            }
+
+            if ( !message ) {
+                errorMessage.show();
+                errorMessage.html(errorMessage.html() + "Es necesario introducir el mensaje.<br>");
+            }
 
         }
         else {

@@ -4,34 +4,34 @@ block content
     br
     .container
 
-        h1.center-align(tabindex="0") ¿Quieres atención personalizada?
+        h1.center-align(tabindex="0") ¿Quieres contactar con nosotros?
         p.flow-text.center-align(tabindex="0") Envíanos un mensaje y responderemos tus dudas lo antes posible a la dirección de
-            | correo que nos proporciones
+            |  correo que nos proporciones
 
         .row
-            form#contactForm.col.l6.offset-l3(action="/contacto" method="post")
+            form#contactForm.col.l6.offset-l3.s12.m12(action="/contacto" method="post")
                 .row
-                    .input-field.col.l12.s12
+                    .input-field.col.l12.s12.m12
                         input#name.validate(placeholder='Nombre Completo', type='text' name="contactName" required)
                         label.black-text(for='name') Nombre Completo
                 .row
-                    .input-field.col.s12
+                    .input-field.col.l12.s12.m12
                         input#contactEmail.validate(placeholder='email de contacto' type='email' name="contactEmail" required)
                         label.black-text(for='contactEmail') email de contacto
                 .row
-                    .input-field.col.l12.s12
+                    .input-field.col.l12.s12.m12
                         input#asunto.validate(placeholder='Asunto', type='text' name="asunto" required)
                         label.black-text(for='asunto') Asunto
                 .row
-                    .input-field.col.s12
+                    .input-field.col.s12.m12
                         textarea#message.materialize-textarea(placeholder='Escribe aquí tu consulta' name="message" required)
                         label.black-text(for='message') Escribe aquí tu consulta
 
                 .row
-                    .col.l2.offset-l3.offset-s3
-                    button#contact.btn.waves-effect.waves-light.purple.darken-2(name="action")
-                        | Enviar
-                        i.material-icons.right send
+                    .col.l6.offset-l3.xl4.offset-xl4
+                        button#contact.btn.waves-effect.waves-light.purple.darken-2(name="action")
+                            | Enviar
+                            i.material-icons.right send
 
         .row.red-text.text-accent-4
             p.flow-text.center-align#errorMessage(hidden tabindex="0")
