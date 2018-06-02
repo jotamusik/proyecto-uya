@@ -209,7 +209,6 @@ $(function () {
 $('.sidenav-trigger').on('keypress', function (event) {
     let target = event.target;
     target.click();
-    // ToDo: Ïntentar dar el foco al primer enlace de la lista
     $('#homeButton').focus();
 });
 
