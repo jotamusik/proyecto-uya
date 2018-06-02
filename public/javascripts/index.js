@@ -189,7 +189,10 @@ $(function () {
                         }
                         else {
 
-                            location.href = '/login-successful'
+                            //location.href = '/login-successful';
+                            $.redirect('/myUser', { email: email, password: password });
+
+
                         }
                     }
                 });

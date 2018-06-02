@@ -29,10 +29,11 @@ html(lang="es")
               a.white-text(href="/contacto") Contacto
             li
               a.white-text(href="/about") Acerca de
-            li
-              a.white-text(href="/login") Iniciar Sesión
-            li
-              a.white-text(href="/registro") Registrarse
+            if !user
+              li
+                a.white-text(href="/login") Iniciar Sesión
+              li
+                a.white-text(href="/registro") Registrarse
 
           ul.right.hide-on-med-and-down
             li
@@ -54,12 +55,14 @@ html(lang="es")
           li
             a(href="/about") Acerca de
               i.material-icons info
-          li
-            a(href="/login") Iniciar sesión
-              i.material-icons person
-          li
-            a(href="/registro") Registrarse
-              i.material-icons person_add
+
+          if !user
+            li
+              a(href="/login") Iniciar sesión
+                i.material-icons person
+            li
+              a(href="/registro") Registrarse
+                i.material-icons person_add
           li
             a(href="/mapa-web") Mapa Web
               i.material-icons map
@@ -109,5 +112,6 @@ html(lang="es")
     script(src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous")
+    script(src="https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js")
     script(src="javascripts/index.js")

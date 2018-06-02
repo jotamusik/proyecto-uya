@@ -129,4 +129,20 @@ router.get('/login-successful', function (req, res) {
     res.render('login-successful', { title: 'Inicio de sesión exitoso' });
 });
 
+router.post('/myUser', function (req, res) {
+    let myUser = {
+        email: req.body.email,
+        password: req.body.password
+    };
+
+    Usuario.findOne(myUser, function (error, user) {
+        if ( error ) {
+            res.status(500).render('error', { message: "Ha habido un error, inténtelo más tarde" });
+        }
+        else {
+            res.render('myUser', { user: user });
+        }
+    });
+});
+
 module.exports = router;
