@@ -1,7 +1,16 @@
 doctype html
 html(lang="es")
   head
+    // Google Analytics Code
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-120292369-1")
+      script.
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+              dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
 
+          gtag('config', 'UA-120292369-1');
     // Google Analytics Content Experiment code
     script.
         function utmx_section() {
@@ -31,15 +40,7 @@ html(lang="es")
     script.
         utmx('url', 'A/B');
     // End of Google Analytics Content Experiment code
-    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-120292369-1")
-    script.
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
 
-        gtag('config', 'UA-120292369-1');
     meta(charset="UTF-8")
     title= title
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
