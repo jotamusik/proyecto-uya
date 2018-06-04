@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/asignaturas', function(req, res, next) {
-    //res.render('asignaturas', { title: 'Asignaturas' });
+    res.render('asignaturas', { title: 'Asignaturas' });
+    /*
     Asignatura.find({}, function (err, asignaturas) {
 
         if(err)
@@ -26,6 +27,7 @@ router.get('/asignaturas', function(req, res, next) {
         else
             res.render('asignaturas', {title: 'Asignaturas', asignaturas:asignaturas});
     });
+    */
 });
 
 router.get('/registro', function(req, res, next) {
@@ -143,6 +145,10 @@ router.post('/myUser', function (req, res) {
             res.render('myUser', { user: user });
         }
     });
+});
+
+router.get('/alternativaAsignaturas', function (req, res) {
+    res.render('alternativaAsignatura')
 });
 
 module.exports = router;
