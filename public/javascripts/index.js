@@ -1,3 +1,8 @@
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-120292369-1');
 
 
 let isMobile = {
