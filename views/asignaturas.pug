@@ -1,0 +1,78 @@
+extends layout
+
+block content
+
+    div.container(role="main")
+        h1.center-align(tabindex="0") Asignaturas Impartidas en la Academia
+        div.row
+            div.col.l5.offset-l1
+                div.card
+                    div.card-image.waves-effect.waves-block.waves-light
+                        img.activator.responsive-img(src="images/pencil-3254409_1920.jpg" alt="")
+
+                    // TODO: Decir al usuario que esto es una tarjeta desplegable
+                    div.card-content
+                        span.card-title.activator.grey-text.text-darken-4(tabindex="0") Secundaria
+                            i.material-icons.right more_vert
+                        p
+                            p(tabindex="0") Asignaturas
+
+                    div.card-reveal
+                        span.card-title.grey-text.text-darken-4(tabindex="0") Secundaria
+                            i.material-icons.right close
+                        ul
+                            li(tabindex="0") Matemáticas
+                            li(tabindex="0") Física y Química
+
+
+
+            div.col.l5
+                div.card
+                    div.card-image.waves-effect.waves-block.waves-light
+                        img.activator.responsive-img(src="images/atom-1674878.png" alt="")
+
+                    div.card-content
+                        span.card-title.activator.grey-text.text-darken-4(tabindex="0") Bachillerato
+                            i.material-icons.right more_vert
+                        p
+                            p(tabindex="0") Asignaturas
+
+                    div.card-reveal
+                        span.card-title.grey-text.text-darken-4(tabindex="0") Bachillerato
+                            i.material-icons.right close
+                        ul
+                            li(tabindex="0") Matemáticas
+                            li(tabindex="0") Física
+                            li(tabindex="0") Química
+
+
+
+        div.row
+            div.col.l10.offset-l1
+                div.card
+                    div.card-image.waves-effect.waves-block.waves-light
+                        img.activator.responsive-img(src="images/books.jpg" alt="")
+
+                    div.card-content
+                        span.card-title.activator.grey-text.text-darken-4(tabindex="0") Universidad
+                            i.material-icons.right more_vert
+                        p
+                            p(tabindex="0") Asignaturas
+
+                    div.card-reveal
+                        span.card-title.grey-text.text-darken-4(tabindex="0") Universidad
+                            i.material-icons.right close
+
+                        p(tabindex="0") Contamos con apuntes y ejercicios resueltos de un gran número de grados universitarios.
+                            | Trabajamos todas las asignaturas relacionadas con matemáticas, física y química de las siguientes ramas:
+
+                        div.row
+                            div.col.l6.offset-l1
+                                ul
+                                    li(tabindex="0") Ciencias de la Salud
+                                    li(tabindex="0") Ingeniería y Arquitectura
+                                    li(tabindex="0") Ciencias Sociales y Jurídicas
+                                    li(tabindex="0") Ciencias
+
+
+                        p(tabindex="0") En caso de que el tuyo no se encuentre en el listado, ponte en contacto con nosotros.

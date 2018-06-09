@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container
+  if error.status == "404"
+    h1.center-align.flow-text(tabindex="0") Ups! Parece que la página a la que intentas acceder no existe.
+    .row
+      .col.l6.offset-l3
+        img.responsive-img(src="/images/404-error.png" alt="")
+  else if error.status == ""

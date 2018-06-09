@@ -1,0 +1,152 @@
+doctype html
+html(lang="es")
+  head
+    // Google Analytics Content Experiment code
+    script.
+        function utmx_section() {
+        }function utmx() {
+        }(function () {
+            var
+                k = '152407829-0', d = document, l = d.location, c = d.cookie;
+            if (l.search.indexOf('utm_expid=' + k) > 0) return;
+
+            function f(n) {
+                if (c) {
+                    var i = c.indexOf(n + '=');
+                    if (i > -1) {
+                        var j = c.indexOf(';', i);
+                        return escape(c.substring(i + n.length + 1, j < 0 ? c.length : j))
+                    }
+                }
+            }
+
+            var x = f('__utmx'), xx = f('__utmxx'), h = l.hash;
+            d.write(
+                '<sc' + 'ript src="' + 'http' + (l.protocol == 'https:' ? 's://ssl' :
+                '://www') + '.google-analytics.com/ga_exp.js?' + 'utmxkey=' + k +
+                '&utmx=' + (x ? x : '') + '&utmxx=' + (xx ? xx : '') + '&utmxtime=' + new Date().valueOf() + (h ? '&utmxhash=' + escape(h.substr(1)) : '') +
+                '" type="text/javascript" charset="utf-8"><\\/sc' + 'ript>')
+        })();
+    script.
+        utmx('url', 'A/B');
+    // End of Google Analytics Content Experiment code
+
+    meta(charset="UTF-8")
+    title= title
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1")
+    link(rel="icon" type="image/png" href="images/logo.png")
+    link(rel="stylesheet" href="stylesheets/style.css")
+
+
+
+
+  body
+    a.skip-main(href="#main") Skip to Main Content
+
+    nav.purple.darken-2
+      div.container
+        div.nav-wrapper
+          //a.brand-logo.center.white-text(href="/" tabindex="-1") Academia Lagunensis
+          // ToDo: Añadir WAI-ARIA al botón del menú desplegable para dispositivos de pantalla pequeña
+          a.sidenav-trigger#sideNavButton(data-target="mobile-demo" tabindex="0")
+            i.material-icons.white-text menu
+          ul.left.hide-on-med-and-down
+            li
+              a.white-text(href="/") Inicio
+            li
+              a.white-text(href="/asignaturas") Asignaturas
+            li
+              a.white-text(href="/contacto") Contacto
+            li
+              a.white-text(href="/about") Acerca de
+            if !user
+              li
+                a.white-text(href="/login") Iniciar Sesión
+              li
+                a.white-text(href="/registro") Registrarse
+
+          ul.right.hide-on-med-and-down
+            li
+              a.white-text(href="/mapa-web") Mapa Web
+
+
+    div(role="navigation" aria-labelledby="mobile-demo")
+        ul.sidenav#mobile-demo
+          li
+            a#homeButton(href="/") Inicio
+              i.material-icons home
+          li
+            a(href="/asignaturas") Asignaturas
+              i.material-icons library_books
+          li
+            a(href="/contacto") Contacto
+              i.material-icons email
+          li
+            a(href="/about") Acerca de
+              i.material-icons info
+
+          if !user
+            li
+              a(href="/login") Iniciar sesión
+                i.material-icons person
+            li
+              a(href="/registro") Registrarse
+                i.material-icons person_add
+          li
+            a(href="/mapa-web") Mapa Web
+              i.material-icons map
+          li
+            a#exitSideNav(tabindex="0") Cerrar menú
+              i.material-icons close
+
+
+    div#main
+      block content
+
+    footer.page-footer.grey.darken-3
+      div.container
+        div.row
+          div.col.l6.s12
+            h5.white-text(tabindex=0) Academia Lagunensis
+            p.grey-text.text-lighten-4(tabindex=0)
+              | Edificio Galaxia
+              br
+              | Calle Heraclio Sanchez
+              br
+              | Número 25
+              br
+              | Planta: -1
+              br
+              | Local: 15-16
+
+          div.col.l4.offset-l2.s12
+            h5.white-text(tabindex=0) Teléfonos de contacto
+
+            p.grey-text.text-lighten-3(tabindex="0")
+              | Móvil: 616 261 031
+              br
+              | Fijo: 922 195 005
+              br
+              a(href="/contacto")
+                | Envíanos un email
+
+
+
+      div.footer-copyright
+        div.container.row
+          p.col.l6(tabindex=0) © 2018 Copyright Text
+          p.right.col.l4.offset-l2
+            a.grey-text.text-lighten-4(href="/mapa-web") Mapa Web
+
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous")
+    script(src="https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js")
+    // Google Analytics Code
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-120292369-1")
+    script(src="javascripts/index.js")
+
+
